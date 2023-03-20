@@ -1,0 +1,88 @@
+{
+    "name": "norse-blue/laravel-banxico",
+    "description": "",
+    "keywords": [
+    ],
+    "homepage": "https://norse.blue/open-source/laravel-banxico",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/norse-blue/laravel-banxico/issues",
+        "source": "https://github.com/norse-blue/laravel-banxico"
+    },
+    "authors": [
+        {
+            "name": "Axel Pardemann",
+            "email": "axel.pardemann@norse.blue"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "NorseBlue\\Banxico\\BanxicoServiceProvider"
+            ],
+            "aliases": {
+                "Banxico": "NorseBlue\\Banxico\\Facades\\Banxico"
+            }
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.5",
+        "illuminate/http": "^10.0",
+        "spatie/laravel-package-tools": "^1.14"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.6",
+        "nunomaduro/larastan": "^2.5",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "NorseBlue\\Banxico\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NorseBlue\\Banxico\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "check": [
+            "@pint:check",
+            "@test",
+            "@stan"
+        ],
+        "check:coverage": [
+            "@pint:check",
+            "@test:coverage",
+            "@stan"
+        ],
+        "pint": "pint",
+        "pint:check": "pint --test -v",
+        "stan": "phpstan analyze --ansi --xdebug",
+        "stan:github": "phpstan analyze --ansi --xdebug --error-format=github",
+        "test": "pest",
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "pest --coverage --coverage-text --coverage-clover=./build/coverage.xml --coverage-html=./build/coverage"
+        ],
+        "test:output": "pest --disallow-test-output"
+    }
+}
