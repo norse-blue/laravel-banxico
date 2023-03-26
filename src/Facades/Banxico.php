@@ -1,13 +1,13 @@
 <?php
 
-namespace NorseBlue\Banxico\Facades;
+namespace NorseBlue\LaravelBanxico\Facades;
 
 use DateTimeInterface;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
-use NorseBlue\Banxico\BanxicoApiClient;
-use NorseBlue\Banxico\Series\BanxicoSeriesData;
-use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
+use NorseBlue\LaravelBanxico\BanxicoApiClient;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesData;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesMetadata;
 
 /**
  * @method static Collection<int, BanxicoSeriesData> getSeriesData(string $id_serie, ?DateTimeInterface $startDate = null, ?DateTimeInterface $endDate = null)

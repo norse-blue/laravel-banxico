@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Banxico;
+namespace NorseBlue\LaravelBanxico;
 
 use DateTimeInterface;
 use Illuminate\Http\Client\PendingRequest;
@@ -8,11 +8,11 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use NorseBlue\Banxico\Enums\RequestType;
-use NorseBlue\Banxico\Exceptions\BanxicoApiInvalidTokenException;
-use NorseBlue\Banxico\Exceptions\BanxicoInvalidSettingsClassException;
-use NorseBlue\Banxico\Series\BanxicoSeriesData;
-use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
+use NorseBlue\LaravelBanxico\Enums\RequestType;
+use NorseBlue\LaravelBanxico\Exceptions\BanxicoApiInvalidTokenException;
+use NorseBlue\LaravelBanxico\Exceptions\BanxicoInvalidSettingsClassException;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesData;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesMetadata;
 use Spatie\LaravelSettings\Settings;
 
 /**

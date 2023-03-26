@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NorseBlue\Banxico\Tests;
+namespace NorseBlue\LaravelBanxico\Tests;
 
-use NorseBlue\Banxico\BanxicoServiceProvider;
-use NorseBlue\Banxico\Facades\Banxico;
+use NorseBlue\LaravelBanxico\BanxicoServiceProvider;
+use NorseBlue\LaravelBanxico\Facades\Banxico;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase

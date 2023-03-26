@@ -55,12 +55,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NorseBlue\\Banxico\\": "src/"
+            "NorseBlue\\LaravelBanxico\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NorseBlue\\Banxico\\Tests\\": "tests/"
+            "NorseBlue\\LaravelBanxico\\Tests\\": "tests/"
         }
     },
     "suggest": {

@@ -1,9 +1,9 @@
 <?php
 
-namespace NorseBlue\Banxico\Series;
+namespace NorseBlue\LaravelBanxico\Series;
 
 use Carbon\CarbonImmutable;
-use NorseBlue\Banxico\Exceptions\BanxicoDateTimeFormatException;
+use NorseBlue\LaravelBanxico\Exceptions\BanxicoDateTimeFormatException;
 
 final readonly class BanxicoSeriesMetadata
 {

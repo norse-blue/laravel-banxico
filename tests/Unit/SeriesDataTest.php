@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use NorseBlue\Banxico\Series\BanxicoSeriesData;
-use NorseBlue\Banxico\Series\BanxicoSeriesDataValue;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesData;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesDataValue;
 
 test('series data creation', function (string $series_id, string $series_name, array $series_data) {
     $series = BanxicoSeriesData::create($series_id, $series_name, $series_data);

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use NorseBlue\Banxico\Enums\BanxicoSeries;
-use NorseBlue\Banxico\Exceptions\BanxicoApiInvalidTokenException;
-use NorseBlue\Banxico\Facades\Banxico;
-use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
+use NorseBlue\LaravelBanxico\Enums\BanxicoSeries;
+use NorseBlue\LaravelBanxico\Exceptions\BanxicoApiInvalidTokenException;
+use NorseBlue\LaravelBanxico\Facades\Banxico;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesMetadata;
 
 test('Banxico\'s API client returns a collection of series metadata', function () {
     Http::preventStrayRequests();

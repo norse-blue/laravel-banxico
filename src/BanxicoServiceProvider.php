@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Banxico;
+namespace NorseBlue\LaravelBanxico;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Http;

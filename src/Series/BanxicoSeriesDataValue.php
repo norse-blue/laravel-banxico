@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Banxico\Series;
+namespace NorseBlue\LaravelBanxico\Series;
 
 use Carbon\CarbonImmutable;
 
