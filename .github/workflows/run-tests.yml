@@ -50,6 +50,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageLocations: ${{ github.workspace }}/build/coverage.xml:clover
+        continue-on-error: true
 
       - name: Upload coverage to Codecov
         if: "startsWith(matrix.os, 'ubuntu')"
