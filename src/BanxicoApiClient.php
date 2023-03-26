@@ -10,8 +10,10 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use NorseBlue\Banxico\Enums\RequestType;
 use NorseBlue\Banxico\Exceptions\BanxicoApiInvalidTokenException;
+use NorseBlue\Banxico\Exceptions\BanxicoInvalidSettingsClassException;
 use NorseBlue\Banxico\Series\BanxicoSeriesData;
 use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
+use Spatie\LaravelSettings\Settings;
 
 /**
  * @see https://www.banxico.org.mx/SieAPIRest/service/v1/
@@ -74,9 +76,11 @@ final class BanxicoApiClient
 
     private function configureRequest(PendingRequest $request): void
     {
-        $url = config('banxico.api_url') ?? 'https://www.banxico.org.mx/SieAPIRest/service/v1';
-        $token = config('banxico.api_token');
-        $locale = config('banxico.locale') ?? 'es';
+        [
+            'url' => $url,
+            'token' => $token,
+            'locale' => $locale,
+        ] = $this->getConfigParameters();
 
         if ($token === null || $token === '') {
             throw new BanxicoApiInvalidTokenException('Banxico\'s API token is not set.');
@@ -84,7 +88,6 @@ final class BanxicoApiClient
 
         $request
             ->acceptJson()
-            /** @phpstan-ignore-next-line */
             ->baseUrl($url)
             ->withHeaders([
                 'Bmx-Token' => $token,
@@ -98,6 +101,38 @@ final class BanxicoApiClient
     }
 
     /**
+     * @return array{
+     *     url: string,
+     *     token: ?string,
+     *     locale: string,
+     * }
+     */
+    private function getConfigParameters(): array
+    {
+        $parent_class = Settings::class;
+        if (is_string($use_settings = config('banxico.use_settings')) && class_exists($parent_class)) {
+            if (! is_subclass_of($use_settings, $parent_class)) {
+                throw new BanxicoInvalidSettingsClassException("The class '$use_settings' does not extend '$parent_class'.");
+            }
+
+            $settings = app($use_settings);
+
+            return [
+                'url' => $settings->api_url,
+                'token' => $settings->api_token,
+                'locale' => $settings->api_locale,
+            ];
+        }
+
+        /** @phpstan-ignore-next-line */
+        return [
+            'url' => config('banxico.api_url'),
+            'token' => config('banxico.api_token'),
+            'locale' => config('banxico.locale') ?? app()->getLocale(),
+        ];
+    }
+
+    /**
      * @return Collection<int, BanxicoSeriesData>|Collection<int, BanxicoSeriesMetadata>
      *
      * @throws \Illuminate\Http\Client\RequestException
@@ -108,8 +143,8 @@ final class BanxicoApiClient
         $body = json_decode($response->body(), true, 512, JSON_BIGINT_AS_STRING);
 
         return match ($request_type) {
-            RequestType::Data => $this->parseData(Arr::get($body, 'bmx.series')),   /** @phpstan-ignore-line */
-            RequestType::Metadata => $this->parseMetadata(Arr::get($body, 'bmx.series')),   /** @phpstan-ignore-line */
+            RequestType::Data => $this->parseData(Arr::get($body, 'bmx.series')),   // @phpstan-ignore-line
+            RequestType::Metadata => $this->parseMetadata(Arr::get($body, 'bmx.series')),   // @phpstan-ignore-line
         };
     }
 
