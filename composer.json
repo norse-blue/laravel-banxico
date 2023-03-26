@@ -31,10 +31,10 @@
         },
         "laravel": {
             "providers": [
-                "NorseBlue\\Banxico\\BanxicoServiceProvider"
+                "NorseBlue\\LaravelBanxico\\BanxicoServiceProvider"
             ],
             "aliases": {
-                "Banxico": "NorseBlue\\Banxico\\Facades\\Banxico"
+                "Banxico": "NorseBlue\\LaravelBanxico\\Facades\\Banxico"
             }
         }
     },
