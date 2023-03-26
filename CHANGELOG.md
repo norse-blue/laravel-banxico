@@ -11,7 +11,11 @@ and this project adheres to [Semantic Versioning][semver_url].
 
 ## [0.1.0] - 2023-03-26
 
-- Fix invalid framework call in config (ca061a3e45b0277376461eb9e3bd76c04e2fcf17).
+- Fix Laravel provider and alias publishing ([1af350b](https://github.com/norse-blue/laravel-banxico/commit/1af350bd3e7102f14a78cc5d183c4bbdbe3322dc)).
+
+## [0.1.0] - 2023-03-26
+
+- Fix invalid framework call in config ([ca061a3](https://github.com/norse-blue/laravel-banxico/commit/ca061a3e45b0277376461eb9e3bd76c04e2fcf17)).
 - Add support for [spatie/laravel-settings](https://github.com/spatie/laravel-settings) package to define config parameters.
 - Improve overall code.
 
