@@ -9,11 +9,18 @@ and this project adheres to [Semantic Versioning][semver_url].
 
 
 
-## [0.0.0] - 202X-XX-XX
+## [0.1.0] - 2023-03-26
 
-Initial release
+- Fix invalid framework call in config (ca061a3e45b0277376461eb9e3bd76c04e2fcf17).
+- Add support for [spatie/laravel-settings](https://github.com/spatie/laravel-settings) package to define config parameters.
+- Improve overall code.
+
+## [0.0.1] - 2023-03-26
+
+Initial alpha release.
 
 [keep_a_changelog_url]: https://keepachangelog.com/en/1.0.0/
 [semver_url]: https://semver.org/spec/v2.0.0.html
-[Unreleased]: https://github.com/norse-blue/laravel-banxico/compare/0.0.0...HEAD
-[0.0.0]: https://github.com/norse-blue/laravel-banxico/compare/0.0.0...0.0.0
+[Unreleased]: https://github.com/norse-blue/laravel-banxico/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/norse-blue/laravel-banxico/compare/0.0.1...0.1.0
+[0.0.1]: https://github.com/norse-blue/laravel-banxico/compare/0.0.0...0.0.1
