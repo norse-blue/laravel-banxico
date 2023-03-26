@@ -10,9 +10,9 @@ final readonly class BanxicoSeriesDataValue
 
     public CarbonImmutable $date;
 
-    public ?int $value;
-
     public bool $exists;
+
+    public ?int $value;
 
     private function __construct(CarbonImmutable $date, bool $exists, ?int $value)
     {

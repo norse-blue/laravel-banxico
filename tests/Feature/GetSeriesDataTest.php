@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
+use NorseBlue\Banxico\Enums\BanxicoSeries;
 use NorseBlue\Banxico\Exceptions\BanxicoApiInvalidTokenException;
 use NorseBlue\Banxico\Facades\Banxico;
 use NorseBlue\Banxico\Series\BanxicoSeriesData;
@@ -26,7 +27,7 @@ test('Banxico\'s API client returns a collection of series data', function () {
             ]),
     ]);
 
-    $series = Banxico::getSeriesData('SF60653,SF46410');
+    $series = Banxico::getSeriesData(BanxicoSeries::combine(BanxicoSeries::ExchangeRate_USD_SettleObligationsDate, BanxicoSeries::ExchangeRate_EUR_BasketSDR));
 
     expect($series)->toBeCollection()
         ->and($series)->toHaveCount(2)
