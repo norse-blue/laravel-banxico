@@ -1,9 +1,10 @@
 <?php
 
-namespace NorseBlue\Banxico\Exceptions;
+namespace NorseBlue\LaravelBanxico\Exceptions;
 
 use RuntimeException;
 
-class BanxicoApiInvalidTokenException extends RuntimeException
+final class BanxicoApiInvalidTokenException extends RuntimeException
 {
+    //
 }

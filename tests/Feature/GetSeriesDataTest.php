@@ -4,17 +4,13 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use NorseBlue\Banxico\Exceptions\BanxicoApiInvalidTokenException;
-use NorseBlue\Banxico\Facades\Banxico;
-use NorseBlue\Banxico\Series\BanxicoSeriesData;
-use NorseBlue\Banxico\Series\BanxicoSeriesDataValue;
+use NorseBlue\LaravelBanxico\Enums\BanxicoSeries;
+use NorseBlue\LaravelBanxico\Exceptions\BanxicoApiInvalidTokenException;
+use NorseBlue\LaravelBanxico\Facades\Banxico;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesData;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesDataValue;
 
 test('Banxico\'s API client returns a collection of series data', function () {
-    Config::partialMock()
-        ->shouldReceive('get')
-        ->with('banxico.api_token', null)
-        ->andReturn('fake-token');
-
     Http::preventStrayRequests();
     Http::fake([
         '*' => Http::response(
@@ -26,7 +22,7 @@ test('Banxico\'s API client returns a collection of series data', function () {
             ]),
     ]);
 
-    $series = Banxico::getSeriesData('SF60653,SF46410');
+    $series = Banxico::getSeriesData(BanxicoSeries::combine(BanxicoSeries::ExchangeRate_USD_SettleObligationsDate, BanxicoSeries::ExchangeRate_EUR_BasketSDR));
 
     expect($series)->toBeCollection()
         ->and($series)->toHaveCount(2)

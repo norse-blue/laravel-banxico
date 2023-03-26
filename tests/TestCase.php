@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NorseBlue\Banxico\Tests;
+namespace NorseBlue\LaravelBanxico\Tests;
 
-use NorseBlue\Banxico\BanxicoServiceProvider;
-use NorseBlue\Banxico\Facades\Banxico;
+use NorseBlue\LaravelBanxico\BanxicoServiceProvider;
+use NorseBlue\LaravelBanxico\Facades\Banxico;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase
@@ -22,5 +22,13 @@ abstract class TestCase extends OrchestraTestCase
         return [
             'Banxico' => Banxico::class,
         ];
+    }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('banxico.use_settings', false);
+        $app['config']->set('banxico.api_url', 'https://www.banxico.org.mx/SieAPIRest/service/v1');
+        $app['config']->set('banxico.api_token', 'fake-token');
+        $app['config']->set('banxico.api_locale', 'es');
     }
 }

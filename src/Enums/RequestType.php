@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Banxico\Enums;
+namespace NorseBlue\LaravelBanxico\Enums;
 
 enum RequestType: string
 {

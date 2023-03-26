@@ -50,17 +50,21 @@
         "orchestra/testbench": "^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "spatie/laravel-settings": "^2.8"
     },
     "autoload": {
         "psr-4": {
-            "NorseBlue\\Banxico\\": "src/"
+            "NorseBlue\\LaravelBanxico\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NorseBlue\\Banxico\\Tests\\": "tests/"
+            "NorseBlue\\LaravelBanxico\\Tests\\": "tests/"
         }
+    },
+    "suggest": {
+        "spatie/laravel-settings": "Required to use a settings class instead of config values. Supported version: ^2.8"
     },
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",

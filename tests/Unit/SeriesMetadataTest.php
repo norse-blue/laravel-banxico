@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Carbon\CarbonImmutable;
-use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
+use NorseBlue\LaravelBanxico\Series\BanxicoSeriesMetadata;
 
 test('series metadata creation', function (string $series_id, string $series_name, string $series_start_date, string $series_end_date, string $series_periodicity, string $series_figure, string $series_unit, bool $series_versioned) {
     $series = BanxicoSeriesMetadata::create($series_id, $series_name, $series_start_date, $series_end_date, $series_periodicity, $series_figure, $series_unit, $series_versioned);
