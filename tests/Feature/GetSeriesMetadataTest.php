@@ -10,11 +10,6 @@ use NorseBlue\Banxico\Facades\Banxico;
 use NorseBlue\Banxico\Series\BanxicoSeriesMetadata;
 
 test('Banxico\'s API client returns a collection of series metadata', function () {
-    Config::partialMock()
-        ->shouldReceive('get')
-        ->with('banxico.api_token', null)
-        ->andReturn('fake-token');
-
     Http::preventStrayRequests();
     Http::fake([
         '*' => Http::response(

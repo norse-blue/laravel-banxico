@@ -23,4 +23,12 @@ abstract class TestCase extends OrchestraTestCase
             'Banxico' => Banxico::class,
         ];
     }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('banxico.use_settings', false);
+        $app['config']->set('banxico.api_url', 'https://www.banxico.org.mx/SieAPIRest/service/v1');
+        $app['config']->set('banxico.api_token', 'fake-token');
+        $app['config']->set('banxico.api_locale', 'es');
+    }
 }

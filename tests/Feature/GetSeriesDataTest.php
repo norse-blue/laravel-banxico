@@ -11,11 +11,6 @@ use NorseBlue\Banxico\Series\BanxicoSeriesData;
 use NorseBlue\Banxico\Series\BanxicoSeriesDataValue;
 
 test('Banxico\'s API client returns a collection of series data', function () {
-    Config::partialMock()
-        ->shouldReceive('get')
-        ->with('banxico.api_token', null)
-        ->andReturn('fake-token');
-
     Http::preventStrayRequests();
     Http::fake([
         '*' => Http::response(
