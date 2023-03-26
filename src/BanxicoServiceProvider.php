@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class BanxicoServiceProvider extends PackageServiceProvider implements DeferrableProvider
+final class BanxicoServiceProvider extends PackageServiceProvider implements DeferrableProvider
 {
     public function configurePackage(Package $package): void
     {

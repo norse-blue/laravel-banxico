@@ -4,6 +4,7 @@ namespace NorseBlue\Banxico\Exceptions;
 
 use RuntimeException;
 
-class BanxicoDateTimeFormatException extends RuntimeException
+final class BanxicoDateTimeFormatException extends RuntimeException
 {
+    //
 }
