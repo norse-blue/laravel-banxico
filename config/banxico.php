@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\App;
-
 return [
 
     /**
@@ -23,6 +21,6 @@ return [
     /**
      * Banxico's API locale
      */
-    'locale' => App::getLocale(),
+    'api_locale' => env('BANXICO_API_LOCALE', 'es'),
 
 ];
