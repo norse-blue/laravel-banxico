@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning][semver_url].
 
 
 
-## [0.1.0] - 2023-03-26
+## [0.1.1] - 2023-03-26
 
 - Fix Laravel provider and alias publishing ([1af350b](https://github.com/norse-blue/laravel-banxico/commit/1af350bd3e7102f14a78cc5d183c4bbdbe3322dc)).
 
@@ -26,5 +26,6 @@ Initial alpha release.
 [keep_a_changelog_url]: https://keepachangelog.com/en/1.0.0/
 [semver_url]: https://semver.org/spec/v2.0.0.html
 [Unreleased]: https://github.com/norse-blue/laravel-banxico/compare/0.1.0...HEAD
-[0.1.0]: https://github.com/norse-blue/laravel-banxico/compare/0.0.1...0.1.0
 [0.0.1]: https://github.com/norse-blue/laravel-banxico/compare/0.0.0...0.0.1
+[0.1.0]: https://github.com/norse-blue/laravel-banxico/compare/0.0.1...0.1.0
+[0.1.1]: https://github.com/norse-blue/laravel-banxico/compare/0.1.0...0.1.1
