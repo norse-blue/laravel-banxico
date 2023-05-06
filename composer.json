@@ -88,5 +88,19 @@
             "pest --coverage --coverage-text --coverage-clover=./build/coverage.xml --coverage-html=./build/coverage"
         ],
         "test:output": "pest --disallow-test-output"
-    }
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/axelitus"
+        },
+        {
+            "type": "other",
+            "url": "https://ko-fi.com/axelitus"
+        },
+        {
+            "type": "other",
+            "url": "https://www.buymeacoffee.com/axelitus"
+        }
+    ]
 }
