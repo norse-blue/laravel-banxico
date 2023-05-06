@@ -20,9 +20,9 @@ test('series data creation', function (string $series_id, string $series_name, a
             expect($data->value['2023-01-02']->exists)->toBeFalse()
                 ->and($data->value['2023-01-02']->value)->toBeNull()
                 ->and($data->value['2023-01-02']->valueAsFloat())->toBeNull()
-            ->and($data->value['2023-01-03']->exists)->toBeTrue()
-            ->and($data->value['2023-01-03']->value)->toBe(204504)
-            ->and($data->value['2023-01-03']->valueAsFloat())->toBe(20.4504);
+                ->and($data->value['2023-01-03']->exists)->toBeTrue()
+                ->and($data->value['2023-01-03']->value)->toBe(204504)
+                ->and($data->value['2023-01-03']->valueAsFloat())->toBe(20.4504);
         });
 })->with([
     [
