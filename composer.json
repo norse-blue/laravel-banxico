@@ -80,8 +80,8 @@
         ],
         "pint": "pint",
         "pint:check": "pint --test -v",
-        "stan": "phpstan analyze --ansi --xdebug",
-        "stan:github": "phpstan analyze --ansi --xdebug --error-format=github",
+        "stan": "phpstan analyze --ansi",
+        "stan:github": "phpstan analyze --ansi --error-format=github",
         "test": "pest",
         "test:coverage": [
             "@putenv XDEBUG_MODE=coverage",
